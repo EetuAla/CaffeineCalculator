@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Caffeine Intake Tracker</title>
+</head>
+<body>
+
+	<h2>Caffeine Products</h2>
+	<!-- links to add and delete pages -->
+	 <a th:href="@{/add}">Add Caffeine Product</a>
+	 <a th:href="@{/delete}">Delete Caffeine Product</a>
+	
+	 <!-- form for calculating caffeine intake -->
+	<form action="#" th:action="@{/calculate}" method="post">
+	<!-- dropdown list for selecting a Caffeine Product -->
+		<label for="selectedProduct">Select Caffeine Product:</label> <select
+			id="selectedProduct" name="selectedProduct">
+			<!-- iterate over the list of caffeineProducts and populate the dropdown -->
+			<option th:each="product : ${caffeineProducts}" th:value="${product.id}">
+				<span th:text="${product.name}"></span>
+			</option>
+			<!-- input field for entering the amount of the selected product -->
+		</select> <label for="amount">Amount:</label> <input type="text" id="amount"
+			name="amount" placeholder="Enter amount" /> <input type="submit"
+			value="Calculate" />
+	</form>
+
+	<br />
+<!-- section for displaying the calculated caffeine intake -->
+	<h2>Caffeine Intake Calculation</h2>
+	<p th:if="${calculatedCaffeine != null}"
+		th:text="'Total Caffeine Intake: ' + ${calculatedCaffeine} + ' mg of ' + 'caffeine'"></p>
+
+
+</body>
+</html>

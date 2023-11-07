@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Delete Caffeine Product</title>
+</head>
+<body>
+
+    <h2>Delete Caffeine Products</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Caffeine (mg)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${caffeineProducts}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.caffeineContent}"></td>
+                <td>
+                    <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

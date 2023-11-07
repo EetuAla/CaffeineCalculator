@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Caffeine Product</title>
+</head>
+<body>
+
+	<h2>Add Caffeine Product</h2>
+
+	<form action="#" th:action="@{/add}" method="post" th:object="${newCaffeineProduct}">
+	
+		<label for="name">Name:</label> 
+		<input type="text" id="name" name="name" th:field="*{name}" />
+		
+		 <label for="caffeineContent">Caffeine Content:</label>
+		  <input type="text" id="caffeineContent" name="caffeineContent" th:field="*{caffeineContent}" /> 
+		  
+		  <input type="submit" value="Add Product" />
+	</form>
+
+</body>
+</html>
